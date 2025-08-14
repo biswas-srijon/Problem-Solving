@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 class Solution {
@@ -23,12 +24,17 @@ public:
 
     ans.pop_back();
     //exclude
-    getAllSubsets(nums, ans, i+1, allSubsets);
-
+    int idx = i+1;
+    while(idx < nums.size() && nums[i] == nums[idx]){ //cheacking if the next value is still same, then no need to call for it
+        idx++;
+    }
+    getAllSubsets(nums, ans, idx, allSubsets);
 }
 
     //we have to store the subsets in this 2D return type func's vector
-    vector<vector<int>> subsets(vector<int>& nums) {
+    vector<vector<int>> subsetsWithDup(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+
         vector<vector<int>> allSubsets;
 
         vector<int> ans;
@@ -51,7 +57,7 @@ int main(){
         cin >> nums[i];
     }
 
-    vector<vector<int>> result = s.subsets(nums);
+    vector<vector<int>> result = s.subsetsWithDup(nums);
 
     cout << "All subsets:\n";
     for (auto &subset : result) {
