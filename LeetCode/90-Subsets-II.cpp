@@ -1,6 +1,6 @@
-//LeetCode 78: Subsets
-//Difficulty: Easy
-//Link: https://leetcode.com/problems/subsets/
+//LeetCode 90: Subsets II
+//Difficulty: Medium
+//Link: https://leetcode.com/problems/subsets-ii/
 
 
 //TC : O(n * 2^n)
